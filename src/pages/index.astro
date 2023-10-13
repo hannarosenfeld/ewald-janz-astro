@@ -18,15 +18,19 @@ import Eworks from "../../public/images/nav-images/E-works.jpg"
 <Layout title="Ewald Janz">
 	<main>
 		<div class="nav">
-		<Image src={E} alt="E" height="200" densities={[1.5, 2]} class="letter"/>
-		<Image src={W} alt="W" height="200" densities={[1.5, 2]} class="letter"/>
-		<Image src={A} alt="A" height="200" densities={[1.5, 2]} class="letter"/>
-		<Image src={L} alt="L" height="200" densities={[1.5, 2]} class="letter"/>
-		<Image src={D} alt="D" height="200" densities={[1.5, 2]} class="letter"/>
-		<Image src={J} alt="J" height="200" densities={[1.5, 2]} class="letter"/>
-		<Image src={A} alt="A" height="200" densities={[1.5, 2]} class="letter"/>
-		<Image src={N} alt="N" height="200" densities={[1.5, 2]} class="letter"/>
-		<Image src={Z} alt="Z" height="200" densities={[1.5, 2]} class="letter"/>
+			<div class="vorname">
+				<Image src={E} alt="E" height="320" densities={[1.5, 2]} class="letter"/>
+				<Image src={W} alt="W" height="320" densities={[1.5, 2]} class="letter"/>
+				<Image src={A} alt="A" height="320" densities={[1.5, 2]} class="letter"/>
+				<Image src={L} alt="L" height="320" densities={[1.5, 2]} class="letter"/>
+				<Image src={D} alt="D" height="320" densities={[1.5, 2]} class="letter"/>
+			</div>
+			<div class="nachname">
+				<Image src={J} alt="J" height="320" densities={[1.5, 2]} class="letter"/>
+				<Image src={A} alt="A" height="320" densities={[1.5, 2]} class="letter"/>
+				<Image src={N} alt="N" height="320" densities={[1.5, 2]} class="letter"/>
+				<Image src={Z} alt="Z" height="320" densities={[1.5, 2]} class="letter"/>
+			</div>
 		</div>
 	</main>
 </Layout>
@@ -45,15 +49,53 @@ import Eworks from "../../public/images/nav-images/E-works.jpg"
 	main {
 		/* border: 2px solid darkgoldenrod; */
 		margin: 0 auto;
-		width: 800px;
+		width: 100%;
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
 	}
 	.nav {
-		width: 525px;
+		width: 100%;
+		max-height: 100vh;
 		margin: 0 auto;
 		/* border: 2px solid darkcyan; */
-		height: 11em;
+		display: flex;
+		flex-direction: column;
+	}
+	.vorname, .nachname {
+		height: 48vh;
+		margin: 0 auto;
+		/* border: 2px solid darkorange; */
+	}
+	.letter {
+
+	} 
+
+	@media screen and (max-width: 768px) {
+		.letter {
+		height: 160px;
+			}
+	}
+
+    @media screen and (max-width: 480px) {
+		.letter {
+			width: 3.2em;
+		}
+		.vorname,.nachname {
+			/* border: 2px solid green; */
+			height: 10em;
+		}
+		.nav {
+			/* border: 2px solid red; */
+			/* height: 98vh; */
+			display: flex;
+			justify-content: center;
+		}
+		main {
+			/* border: 2px solid blue; */
+			height: 98vh;
+			display: flex;
+			justify-content: center;
+		}
 	}
 </style>
