@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import { Image } from 'astro:assets';
+
 import E from "../../public/images/nav-images/1-E.png"
 import W from "../../public/images/nav-images/2-W.png"
 import A from "../../public/images/nav-images/3-A.png"
@@ -12,28 +13,82 @@ import A2 from "../../public/images/nav-images/7-A.png"
 import N from "../../public/images/nav-images/8-N.png"
 import Z from "../../public/images/nav-images/9-Z.png"
 
-import Eworks from "../../public/images/nav-images/E-works.jpg"
+
 ---
+<script>
+	console.log("🔥")
+	// Select the "E" image element
+	const eImage = document.getElementById('E');
+	const wImage = document.getElementById('W');
+	const aImage = document.getElementById('A');
+	const lImage = document.getElementById('L');
+	
+	// Select the "works" section
+	const worksSection = document.getElementById('works');
+	const textSection = document.getElementById('text');
+	const exhibitionsSection = document.getElementById('exhibitions');
+	const cvSection = document.getElementById('cv');
+  
+	// Add a click event listener to the "E" image
+	eImage.addEventListener('click', () => {
+	  // Scroll to the "works" section when the "E" image is clicked
+	  worksSection.scrollIntoView({ behavior: 'auto' });
+	});
+	wImage.addEventListener('click', () => {
+	  // Scroll to the "works" section when the "E" image is clicked
+		textSection.scrollIntoView({ behavior: 'auto' });
+	});
+	aImage.addEventListener('click', () => {
+	  // Scroll to the "works" section when the "E" image is clicked
+	  exhibitionsSection.scrollIntoView({ behavior: 'auto' });
+	});	
+	lImage.addEventListener('click', () => {
+	  // Scroll to the "works" section when the "E" image is clicked
+	  cvSection.scrollIntoView({ behavior: 'auto' });
+	});		
+  </script>
 
 <Layout title="Ewald Janz">
 	<main>
-		<div class="nav">
-			<div class="vorname">
-				<Image src={E} alt="E" height="310" densities={[1.5, 2]} class="letter"/>
-				<Image src={W} alt="W" height="310" densities={[1.5, 2]} class="letter"/>
-				<Image src={A} alt="A" height="310" densities={[1.5, 2]} class="letter"/>
-				<Image src={L} alt="L" height="310" densities={[1.5, 2]} class="letter"/>
-				<Image src={D} alt="D" height="310" densities={[1.5, 2]} class="letter"/>
+		<div id="site-nav" class="section">
+			<div id="vorname">
+				<Image src={E} alt="E" height="310" densities={[1.5, 2]} class="letter" id="E"/>
+				<Image src={W} alt="W" height="310" densities={[1.5, 2]} class="letter" id="W"/>
+				<Image src={A} alt="A" height="310" densities={[1.5, 2]} class="letter" id="A"/>
+				<Image src={L} alt="L" height="310" densities={[1.5, 2]} class="letter" id="L"/>
+				<Image src={D} alt="D" height="310" densities={[1.5, 2]} class="letter" id="D"/>
 			</div>
-			<div class="nachname">
+			<div id="nachname">
 				<Image src={J} alt="J" height="310" densities={[1.5, 2]} class="letter"/>
 				<Image src={A2} alt="A" height="310" densities={[1.5, 2]} class="letter"/>
 				<Image src={N} alt="N" height="310" densities={[1.5, 2]} class="letter"/>
 				<Image src={Z} alt="Z" height="310" densities={[1.5, 2]} class="letter"/>
 			</div>
 		</div>
-		<div class="">
-			
+		<div id="works" class="section">
+			<nav id="works-nav">
+				<h2>WORKS</h2>
+				<ul>
+					<li>paintings</li>
+					<li>drawings</li>
+					<li>collages</li>
+				</ul>
+			</nav>
+		</div>
+		<div id="text" class="section">
+			<nav id="text-nav">
+				<h2>TEXT</h2>
+			</nav>
+		</div>
+		<div id="exhibitions" class="section">
+			<nav id="exhibitions-nav">
+				<h2>EXHIBITIONS</h2>
+			</nav>
+		</div>
+		<div id="cv" class="section">
+			<nav id="cv-nav">
+				<h2>CV</h2>
+			</nav>
 		</div>
 	</main>
 </Layout>
@@ -44,6 +99,9 @@ import Eworks from "../../public/images/nav-images/E-works.jpg"
 		margin: 0;
 		padding: 0;
 		font-family: 'Open Sans', sans-serif;
+	}
+	ul {
+		list-style: none;
 	}
 	body {
 		max-width: 100vw;
@@ -56,19 +114,30 @@ import Eworks from "../../public/images/nav-images/E-works.jpg"
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
+		color: #000000;
 	}
-	.nav {
+	.section {
 		width: 100%;
 		height: 100vh;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
+		padding: 10px;
+		/* border: 2px solid hotpink; */
 	}
-	.vorname, .nachname {
+	#vorname, #nachname {
 		margin: 0 auto;
 		display: flex;
 	}
 	.letter {
-
+		cursor: pointer;
 	} 
+	#works {
+	}
+
+	#works-nav {
+		/* border: 2px solid darkgoldenrod; */
+		width: fit-content;
+		height: 100%;
+	}
 </style>
