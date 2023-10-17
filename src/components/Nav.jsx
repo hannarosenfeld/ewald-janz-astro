@@ -33,8 +33,7 @@ export default function Nav() {
         transform: 'translate(-50%)', // Center the submenu items within the red border box
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        margin: '0 auto',
+        textAlign: "center",
     }
 
 
