@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Nav from '../components/Nav.jsx';
 import { Image } from 'astro:assets';
 
 import E from "../../public/images/nav-images/1-E.png"
@@ -16,14 +16,10 @@ import Z from "../../public/images/nav-images/9-Z.png"
 
 ---
 <script>
-	console.log("🔥")
-	// Select the "E" image element
 	const eImage = document.getElementById('E');
 	const wImage = document.getElementById('W');
 	const aImage = document.getElementById('A');
 	const lImage = document.getElementById('L');
-	
-	// Select the "works" section
 	const worksSection = document.getElementById('works');
 	const textSection = document.getElementById('text');
 	const exhibitionsSection = document.getElementById('exhibitions');
@@ -65,6 +61,9 @@ import Z from "../../public/images/nav-images/9-Z.png"
 				<Image src={Z} alt="Z" height="310" densities={[1.5, 2]} class="letter"/>
 			</div>
 		</div>
+
+		<Nav client:load/>
+
 		<div id="works" class="section">
 			<nav id="works-nav">
 				<h2>WORKS</h2>
@@ -153,7 +152,10 @@ import Z from "../../public/images/nav-images/9-Z.png"
 
 	#vorname, #nachname {
 		margin: 0 auto;
-		display: flex;
+	}
+
+	#vorname {
+		padding-left: 4rem;
 	}
 
 	.letter {
@@ -170,6 +172,7 @@ import Z from "../../public/images/nav-images/9-Z.png"
 
 	#site-nav {
 		flex-direction: column;
+		margin-left: -1em;
 	}
 
 	nav {
@@ -254,3 +257,4 @@ import Z from "../../public/images/nav-images/9-Z.png"
 	}
 
 </style>
+../components/Nav.jsx
