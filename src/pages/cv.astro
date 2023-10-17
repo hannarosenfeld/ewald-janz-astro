@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout title="Ewald Janz">
+  <main>
+    <div id="cv" class="section">
+        <nav id="cv-nav">
+            <h2>CV</h2>
+        </nav>
+        <div id="cv-container">
+            <ul>
+                <li><b>1990</b> *in Suhl</li>
+                <li><b>1996</b> Einschulung Grundundrealschule Köppelsdorf, Sonnberg</li>
+                <li><b>2006</b> Realschulabschluss Goetheschule Schalkau, Sonneberg</li>
+                <li><b>2007</b> gescheiterte Ausbildung zum Gastronomiefachmann, Pertisau am Achensee, Tirol, Österreich</li>
+                <li><b>2007-2008</b> Einstiegsqualifizierungsjahr (Maßnahme von Arbeitsamt), Neuhaus am Rennweg</li>
+                <li><b>2008</b> gescheiterter Versuch das Abitur nachzuholen, SBBS Sonneberg</li>
+                <li><b>2008-2010</b> erfolgreiche Ausbildung zum Fachlageristen, Westhausen (bei Hildburghausen)</li>
+                <li><b>2013</b> Abschluss Bachelor Toydesign, Fachhochschule SBBS Sonneberg</li>
+                <li><b>2014-2018</b> Studium Kunst und Literaturwissenschaften, Universität Erfurt</li>
+                <li><b>2023</b> Diplom freie Kunst bei Jana Gunstheimer (Experimentelle Malerei und Zeichnung), Bauhaus Universität Weimar</li>
+                <li>lebt und arbeitet in Weimar and Leipzig.</li>
+            </ul>			
+        </div>	
+    </div>
+  </main>
+</Layout>
+
+<style>
+  	/* VS */
+	#cv {
+        padding: 20px;
+    }
+
+	#cv-container {
+		width: 100%;
+		display: flex;
+		margin: 0 auto;
+		align-items: center;
+		align-content: center;
+	}
+
+	#cv-container ul {
+		width: fit-content;
+		margin: 0 auto;
+	}
+
+    #cv h2 {
+        font-size: 24px;
+        color: #333; /* Dark text color */
+    }
+
+    #cv ul {
+        list-style: none;
+        padding-left: 20px;
+    }
+
+    #cv li {
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #666; /* Slightly darker text color */
+    }
+
+    /* Style the bold years in the CV list */
+    #cv li b {
+        font-weight: bold;
+        color: #000; /* Darker text color for years */
+    }
+</style>

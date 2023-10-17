@@ -1,52 +1,62 @@
 import { useState } from 'react';
 
-
 export default function Nav() {
-    const [isSubMenuVisible, setSubMenuVisible] = useState(false);
+  const [isSubMenuVisible, setSubMenuVisible] = useState(false);
 
-    const showSubMenu = () => {
+  const showSubMenu = () => {
     setSubMenuVisible(true);
-    };
+  };
 
-    const hideSubMenu = () => {
+  const hideSubMenu = () => {
     setSubMenuVisible(false);
-    };
+  };
 
-    const dropDownStyle = {
-        position: 'relative',
-        fontSize: '2.5rem',
-        display: 'flex',
-        alignContent: 'center', 
-        alignItems: 'center', 
-        flexDirection: 'column',
-        cursor: 'pointer',
-        marginLeft: '-1em'
-    }
+  const dropDownStyle = {
+    position: 'relative',
+    fontSize: '2.5rem',
+    display: 'flex',
+    alignContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    cursor: 'pointer',
+    marginLeft: '-1em',
+  };
 
-    const dropDownItemStyle = {
-        position: 'absolute',
-        listStyle: 'none',
-        zIndex: 1,
-        fontSize: "1.4rem",
-        top: '100%', // Place the submenu items below the parent item
-        left: '50%', // Horizontally center the submenu
-        transform: 'translate(-50%)', // Center the submenu items within the red border box
-        display: 'flex',
-        flexDirection: 'column',
-        textAlign: "center",
-    }
+  let dropDownItemStyle = {
+    position: 'absolute',
+    listStyle: 'none',
+    zIndex: 1,
+    fontSize: '1.4rem',
+    top: '100%',
+    left: '50%',
+    transform: 'translate(-50%)',
+    display: 'flex',
+    flexDirection: 'column',
+    textAlign: 'center',
+    maxHeight: isSubMenuVisible ? '100vh' : '0',
+    transition: 'max-height 0.5s ease-in-out', // Slowly unfold the submenu
+  };
 
+  // Add a hover animation for "WORKS"
+  const dropDownItemHoverStyle = {
+    maxHeight: isSubMenuVisible ? '100vh' : '0',
+    transition: 'max-height 0.5s ease-in-out', // Slowly unfold the submenu
+  };
+
+  // Apply the hover animation style when hovering
+  if (isSubMenuVisible) {
+    dropDownItemStyle = { ...dropDownItemStyle, ...dropDownItemHoverStyle };
+  }
 
   return (
-    <div style={{ height: '100vh',display: 'flex', alignItems: 'center', alignContent: 'center', margin: '5em auto'}}>
+    <div style={{ height: '100vh', display: 'flex', alignItems: 'center', alignContent: 'center', margin: '5em auto' }}>
       <ul style={{ margin: '0 auto', position: 'relative', display: 'flex', alignContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
         <li
           onMouseEnter={showSubMenu}
           onMouseLeave={hideSubMenu}
-          style={{marginLeft: '-1em', cursor: 'pointer', position: 'relative', fontSize: '2.5rem', marginBottom: isSubMenuVisible ? '9rem' : '0',}}
-
+          style={{ marginLeft: '-1em', cursor: 'pointer', position: 'relative', fontSize: '2.5rem', marginBottom: isSubMenuVisible ? '9rem' : '0' }}
         >
-          WORKS
+          <a href="/works">WORKS</a>
           {isSubMenuVisible && (
             <ul
               style={dropDownItemStyle}
@@ -59,25 +69,23 @@ export default function Nav() {
           )}
         </li>
         <li
-          onMouseEnter={showSubMenu}
-          onMouseLeave={hideSubMenu}
           style={dropDownStyle}
-        >TEXT</li>
+        >
+            <a href="/text">TEXT</a>
+        </li>
         <li
-          onMouseEnter={showSubMenu}
-          onMouseLeave={hideSubMenu}
           style={dropDownStyle}
-        >CV</li>
+        >
+            <a href="/exhibitions">EXHIBITIONS</a>
+        </li>
         <li
-          onMouseEnter={showSubMenu}
-          onMouseLeave={hideSubMenu}
-          style={dropDownStyle}        
+          style={dropDownStyle}
+        >
+            <a href="/cv">CV</a>
+        </li>
+        <li
+          style={dropDownStyle}
         >CONTACT</li>
-        <li
-          onMouseEnter={showSubMenu}
-          onMouseLeave={hideSubMenu}
-          style={dropDownStyle}        
-        >EXHIBITIONS</li>
       </ul>
     </div>
   );
