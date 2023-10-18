@@ -49,7 +49,7 @@ export default function Nav() {
   }
 
   return (
-    <div style={{ height: '100vh', display: 'flex', alignItems: 'center', alignContent: 'center', margin: '5em auto' }}>
+    <div style={{ height: '100vh', display: 'flex', alignItems: 'center', alignContent: 'center', margin: '5em auto', justifyContent: "center" }}>
       <ul style={{ margin: '0 auto', position: 'relative', display: 'flex', alignContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
         <li
           onMouseEnter={showSubMenu}
